@@ -1,7 +1,7 @@
 <?php
 
 // Setup
-define('WPDEV_DEV_MODE', true);
+define('WPDEV_DEV_MODE', true); // defines dev or production mode
 
 // Includes
 include( get_theme_file_path( '/includes/front/enqueue.php' ));

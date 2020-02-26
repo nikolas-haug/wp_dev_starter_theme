@@ -2,7 +2,13 @@
 
 function wpdev_enqueue() {
     $uri = get_theme_file_uri( );
-    $ver = WPDEV_DEV_MODE ? time() : false;
+    
+    // or: only get the version number associated with the main theme stylesheet (better for browser cacheing essential assets)
+    $theme = wp_get_theme();
+    define('THEME_VERSION', $theme->Version); // gets version written in your style.css
+    
+    // append query string to asset files depending on dev or production mode
+    $ver = WPDEV_DEV_MODE ? time() : THEME_VERSION;
 
     wp_register_style( 'wpdev_google_fonts', 'https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i', [], $ver );
     wp_register_style( 'wpdev_bootstrap', $uri . '/assets/css/bootstrap.css', [], $ver );
