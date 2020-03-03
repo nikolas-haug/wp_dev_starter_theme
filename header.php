@@ -116,7 +116,7 @@
                   'container' => false,
                   'fallback_cb' => false,
                   'depth' => 4,
-                  // 'walker' => new WPDEV_Custom_Nav_Walker
+                  'walker' => new WPDEV_Custom_Nav_Walker
                 ]);
               }
 
