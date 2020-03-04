@@ -9,9 +9,17 @@
         <div class="container clearfix">
 
           <div class="col_half">
-            Copyrights &copy; 2017 All Rights Reserved by Udemy.<br>
+            <?php echo get_theme_mod( 'wpdev_footer_copyright_text' ); ?><br>
+            <?php if(get_theme_mod( 'wpdev_report_file' )) : ?>
+              <a href="<?php echo get_theme_mod('wpdev_report_file'); ?>">Download Report File</a><br>
+            <?php endif; ?>
             <div class="copyright-links">
-              <a href="#">Privacy Policy</a>
+              <?php if(get_theme_mod( 'wpdev_footer_tos_page' )) : ?>
+                <a href="<?php the_permalink(get_theme_mod( 'wpdev_footer_tos_page' )); ?>">Terms of Service</a>
+              <?php endif; ?>
+              <?php if(get_theme_mod( 'wpdev_footer_privacy_page' )) : ?>
+                <a href="<?php the_permalink(get_theme_mod( 'wpdev_footer_privacy_page' )); ?>">Privacy Policy</a>
+              <?php endif; ?>
             </div>
           </div>
 
