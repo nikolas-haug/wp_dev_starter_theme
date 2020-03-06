@@ -18,6 +18,12 @@ function wpdev_misc_customizer_section($wp_customize) {
     $wp_customize->add_setting('wpdev_footer_privacy_page', [
         'default' => 0
     ]);
+    $wp_customize->add_setting('wpdev_show_header_popular_posts', [
+        'default' => false
+    ]);
+    $wp_customize->add_setting('wpdev_popular_posts_widget_title', [
+        'default' => 'Breaking News'
+    ]);
 
     $wp_customize->add_section('wpdev_misc_section', [
         'title' => __('WP Dev Misc Settings', 'wp_dev_theme'),
@@ -105,6 +111,29 @@ function wpdev_misc_customizer_section($wp_customize) {
             'label' => __('File report', 'wp_dev_theme'),
             'section' => 'wpdev_misc_section',
             'settings' => 'wpdev_report_file'
+        )
+    ));
+    
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'wpdev_show_header_popular_posts_widget_input',
+        array(
+            'label' => __('Show Header Popular Posts Widget', 'wp_dev_theme'),
+            'section' => 'wpdev_misc_section',
+            'settings' => 'wpdev_show_header_popular_posts',
+            'type' => 'checkbox',
+            'choices' => [
+                'yes' => __('Yes', 'wp_dev_theme')
+            ]
+        )
+    ));
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'wpdev_popular_posts_widget_title_input',
+        array(
+            'label' => __('Popular Posts Widget Title', 'wp_dev_theme'),
+            'section' => 'wpdev_misc_section',
+            'settings' => 'wpdev_popular_posts_widget_title'
         )
     ));
 }
